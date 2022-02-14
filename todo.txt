@@ -1,0 +1,11 @@
+Screens:
+    - See customers
+        #UNIQ: Email
+        - Create customer
+        - Update customer
+        - Delete customer
+Values: 
+    - First Name
+    - Last Name
+    - Email
+    - Phone Number
