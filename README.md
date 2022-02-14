@@ -1,6 +1,6 @@
 # RoR-CRUD-Contact-List
 
-This project was generated using this [boilerplate](https://github.com/ohbarye/rails-react-typescript-docker-example)
+This project was generated using this [boilerplate](https://github.com/ohbarye/rails-react-typescript-docker-example) that only generates a base Rails + React application with no extra code.
 
 ## TL;DR
 
