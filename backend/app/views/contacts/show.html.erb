@@ -22,3 +22,18 @@
 
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>
+
+<% if @contact.audits.count > 1 %>
+  <p>This user has been edited <%= @contact.audits.count %> times. </p>
+
+  <h3>Edits:</h3>
+  <p>First is the latest change. :)</p>
+
+  <ul>
+    <% @contact.audits.reverse.each do |revision| -%>
+        <li>
+            <%= revision.audited_changes %>
+        </li>
+    <% end -%>
+  </ul>  
+<% end -%>

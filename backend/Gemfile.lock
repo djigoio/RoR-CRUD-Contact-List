@@ -62,6 +62,8 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    audited (5.0.2)
+      activerecord (>= 5.0, < 7.1)
     bindex (0.8.1)
     bootsnap (1.9.4)
       msgpack (~> 1.0)
@@ -193,6 +195,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  audited (~> 5.0)
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 3.26)
