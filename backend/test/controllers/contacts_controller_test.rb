@@ -2,7 +2,7 @@ require "test_helper"
 
 class ContactsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @contact = contacts(:one)
+    @contact = Contact.create(first_name: "Antonio", last_name: "Djigo", email: "example@email.org", phone: "1234567")
   end
 
   test "should get index" do
@@ -15,12 +15,23 @@ class ContactsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create contact" do
+  test "should create contact with different email" do
     assert_difference('Contact.count') do
-      post contacts_url, params: { contact: { email: @contact.email, first_name: @contact.first_name, last_name: @contact.last_name, phone: @contact.phone } }
+      post contacts_url, params: { contact: { email: "different@email.com", first_name: @contact.first_name, last_name: @contact.last_name, phone: @contact.phone } }
     end
 
     assert_redirected_to contact_url(Contact.last)
+  end
+
+  test "should not create contact with same email" do
+    assert_no_difference('Contact.count') do
+      post contacts_url, params: { contact: { email: @contact.email, first_name: @contact.first_name, last_name: @contact.last_name, phone: @contact.phone } }
+    end
+  end
+
+  test "email should be unique" do
+    duplicate_item = @contact.dup
+    assert_not duplicate_item.valid?
   end
 
   test "should show contact" do
